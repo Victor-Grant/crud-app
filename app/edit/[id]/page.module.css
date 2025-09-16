@@ -45,3 +45,15 @@
   border: none;
   padding: 20px;
 }
+
+.button:hover {
+  background-color: white;
+  color: #ffbd59;
+  border: 1px solid #ffbd59;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #ffbd59;
+  color: white;
+}

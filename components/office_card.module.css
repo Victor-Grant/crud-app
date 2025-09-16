@@ -11,7 +11,7 @@
 }
 
 .container:hover {
-  width: 90%;
+  width: 99%;
 }
 
 .link {
@@ -25,6 +25,14 @@
   padding: 6px;
 }
 
+.edit:hover {
+  background-color: gray;
+}
+
+.edit:active {
+  background-color: white;
+}
+
 .delete {
   background-color: white;
   border-radius: 50%;
@@ -32,8 +40,20 @@
   padding: 6px;
 }
 
+.delete:hover {
+  background-color: gray;
+}
+
+.delete:active {
+  background-color: white;
+}
+
 .icons {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.button {
+  all: unset;
 }

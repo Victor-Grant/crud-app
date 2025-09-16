@@ -11,6 +11,9 @@
 }
 
 .button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 5px 18px;
   font-size: 18px;
   border-radius: 15px;
