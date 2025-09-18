@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
-import data from "@/public/utils";
 import { useState, useEffect } from "react";
 
 const page = ({ params }) => {
@@ -9,15 +8,17 @@ const page = ({ params }) => {
   const [office, setOffice] = useState();
 
   useEffect(() => {
-    const _office = data.find((item) => item.id === Number(id));
+    const data = JSON.parse(localStorage.getItem("office"));
+    const _office = data.find((item) => item.id == Number(id));
     setOffice(_office);
-    console.log(_office);
-  });
+  }, []);
   return (
     <div className={styles.container}>
-      <h2>{office && office.title}</h2>
-      <p>{office && office.description}</p>
-      <div>
+      <h2 className={styles.title}>{office && office.title}</h2>
+      <div style={{ height: 2, width: "100%", backgroundColor: "black" }}></div>
+      <p className={styles.description}>{office && office.description}</p>
+      <div style={{ height: 2, width: "100%", backgroundColor: "black" }}></div>
+      <div className={styles.featuresBox}>
         <h3>Office Features</h3>
         <h4>Location: {office && office.location}</h4>
         <h4>Capacity: {office && office.capacity}</h4>

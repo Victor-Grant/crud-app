@@ -2,11 +2,15 @@ import React from "react";
 import styles from "./office_card.module.css";
 import Link from "next/link";
 
-const OfficeCard = ({ title, description, id }) => {
+const OfficeCard = ({ title, description, id, refresh }) => {
   const deleteOffice = () => {
     const result = confirm("Are you sure you want to delete this office");
     if (result) {
-      console.log("Yes");
+      let data = JSON.parse(localStorage.getItem("office"));
+      data = data.filter((i) => i.id != Number(id));
+      localStorage.setItem("office", JSON.stringify(data));
+      alert("Office Successfully deleted");
+      refresh();
     } else {
       console.log("No");
     }
@@ -15,7 +19,7 @@ const OfficeCard = ({ title, description, id }) => {
     <Link className={styles.link} href={`/view/${id}`}>
       <div className={styles.container}>
         <div>{title}</div>
-        <div>{description}</div>
+        <div>{description.slice(0, 100) + "..."}</div>
         <div className={styles.icons}>
           <Link href={`/edit/${id}`}>
             <div className={styles.edit}>
